@@ -3,11 +3,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-menu-list',
+  selector: 'app-login',
   imports: [RouterLink,ReactiveFormsModule],
-  templateUrl: './menu-list.html',
-  styleUrl: './menu-list.css'
+  templateUrl: './login.html',
+  styleUrl: './login.css'
 })
-export class MenuList {
+export class Login {
 
 }
