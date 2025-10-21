@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { MenuItem } from '../menu-item/menu-item';
+import { DailyMenu } from '../daily-menu/daily-menu';
 
 @Component({
   selector: 'app-menu-list',
-  imports: [RouterLink,ReactiveFormsModule],
-  templateUrl: './menu-list.html',
-  styleUrl: './menu-list.css'
+  imports: [ReactiveFormsModule, MenuItem, DailyMenu],
+  templateUrl: './menu-list.html'
 })
 export class MenuList {
 

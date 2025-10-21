@@ -1,5 +1,65 @@
-<a routerLink="login">Login</a >
-<a routerLink="register">Register</a >
-<a routerLink="menuList">Menu List</a >
-<a routerLink="menuItem">Menu Item</a >
-<a routerLink="**">Home</a >
+<header class="bg-gradient-to-r from-purple-900 via-gray-900 to-purple-600 text-white py-3 border-b-4 border-amber-400 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-gradient-to-r from-amber-400 to-amber-500 rounded-lg flex items-center justify-center shadow-md">
+                    <span class="text-gray-900 font-bold text-lg">M</span>
+                </div>
+                <div>
+                    <h1 class="text-xl md:text-2xl font-bold text-white tracking-tight">AiMenu</h1>
+                    <p class="text-amber-400 text-xs font-medium">Restoran Yönetim Sistemi</p>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="hidden md:flex items-center gap-6">
+                <a routerLink="/" 
+                   class="text-gray-300 hover:text-amber-400 font-medium text-sm py-2 border-b-2 border-transparent hover:border-amber-400 transition-all duration-300">
+                    Ana Sayfa
+                </a>
+                <a routerLink="/menuList" 
+                   class="text-gray-300 hover:text-amber-400 font-medium text-sm py-2 border-b-2 border-transparent hover:border-amber-400 transition-all duration-300">
+                    Menüler
+                </a>
+                <a routerLink="/login" 
+                   class="text-gray-300 hover:text-amber-400 font-medium text-sm py-2 border-b-2 border-transparent hover:border-amber-400 transition-all duration-300">
+                    Giriş Yap
+                </a>
+                <a routerLink="/register" 
+                   class="bg-gradient-to-r from-amber-400 to-amber-500 text-gray-900 px-4 py-2 rounded-lg font-semibold text-sm shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
+                    Kayıt Ol
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button type="button" title="Mobil menüyü aç" aria-label="Mobil menüyü aç" class="md:hidden p-2 rounded-lg text-gray-300 hover:text-amber-400 hover:bg-gray-800 transition-colors duration-200">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="md:hidden mt-4 pb-4 border-t border-gray-700">
+            <nav class="flex flex-col space-y-2 pt-4">
+                <a routerLink="/" 
+                   class="text-gray-300 hover:text-amber-400 font-medium text-sm py-2 transition-colors duration-200">
+                    Ana Sayfa
+                </a>
+                <a routerLink="/menuList" 
+                   class="text-gray-300 hover:text-amber-400 font-medium text-sm py-2 transition-colors duration-200">
+                    Menüler
+                </a>
+                <a routerLink="/login" 
+                   class="text-gray-300 hover:text-amber-400 font-medium text-sm py-2 transition-colors duration-200">
+                    Giriş Yap
+                </a>
+                <a routerLink="/register" 
+                   class="bg-gradient-to-r from-amber-400 to-amber-500 text-gray-900 px-4 py-2 rounded-lg font-semibold text-sm text-center mt-2">
+                    Kayıt Ol
+                </a>
+            </nav>
+        </div>
+    </div>
+</header>
