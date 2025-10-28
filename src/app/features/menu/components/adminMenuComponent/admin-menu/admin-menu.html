@@ -1,0 +1,27 @@
+<div class="min-h-screen bg-gradient-to-br from-slate-100 to-slate-300 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800 mb-6 tracking-tight drop-shadow-sm">
+            Admin paneline hos geldiniz.
+        </h1>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 mb-12">
+            <!-- set admin menu items here -->
+        </div>
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+            <div class="flex flex-col md:items-center gap-6 ">
+                <span class="text-4xl font-bold text-gray-700 mb-2 md:mb-0">Mevcut Menü Listesi</span>
+                <div class="flex gap-6">
+                    <app-menu-item></app-menu-item>
+                    <app-daily-menu></app-daily-menu>
+                </div>
+            </div>
+        </div>
+        <div class="flex gap-4 justify-end">
+            <button class="bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-700 hover:to-purple-600 text-white py-3 px-6 rounded-xl font-semibold text-base shadow-lg hover:shadow-xl transition-transform duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-purple-400">
+                Menü Ekle
+            </button>
+            <button class="bg-gradient-to-r from-rose-600 to-rose-500 hover:from-rose-700 hover:to-rose-600 text-white py-3 px-6 rounded-xl font-semibold text-base shadow-lg hover:shadow-xl transition-transform duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-rose-400">
+                Menü Sil
+            </button>
+        </div>
+    </div>
+</div>
