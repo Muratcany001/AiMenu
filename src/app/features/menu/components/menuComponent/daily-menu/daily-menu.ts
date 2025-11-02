@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-daily-menu',
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './daily-menu.html',
   styleUrl: './daily-menu.css'
 })

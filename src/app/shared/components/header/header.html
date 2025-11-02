@@ -2,26 +2,23 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center">
             <!-- Logo -->
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-3" routerLink="/">
                 <div class="w-10 h-10 bg-gradient-to-r from-amber-400 to-amber-500 rounded-lg flex items-center justify-center shadow-md">
-                    <span class="text-gray-900 font-bold text-lg">M</span>
+                    <span class="text-gray-900 font-bold text-lg" routerLink="/">M</span>
                 </div>
                 <div>
-                    <h1 class="text-xl md:text-2xl font-bold text-white tracking-tight">AiMenu</h1>
-                    <p class="text-amber-400 text-xs font-medium">Restoran Yönetim Sistemi</p>
+                    <h1 class="text-xl md:text-2xl font-bold text-white tracking-tight" routerLink="/">AiMenu</h1>
+                    <p class="text-amber-400 text-xs font-medium" routerLink="/">Restoran Yönetim Sistemi</p>
                 </div>
             </div>
 
             <!-- Navigation -->
             <nav class="hidden md:flex items-center gap-6">
-                <a routerLink="/" 
-                   class="text-gray-300 hover:text-amber-400 font-medium text-sm py-2 border-b-2 border-transparent hover:border-amber-400 transition-all duration-300">
-                    Ana Sayfa
+                <a routerLink="/orders" 
+                class="text-gray-300 hover:text-amber-400 font-medium text-sm py-2 border-b-2 border-transparent hover:border-amber-400 transition-all duration-300">
+                    Siparişlerim
                 </a>
-                <a routerLink="/menuList" 
-                   class="text-gray-300 hover:text-amber-400 font-medium text-sm py-2 border-b-2 border-transparent hover:border-amber-400 transition-all duration-300">
-                    Menüler
-                </a>
+                
                 <a routerLink="/login" 
                    class="text-gray-300 hover:text-amber-400 font-medium text-sm py-2 border-b-2 border-transparent hover:border-amber-400 transition-all duration-300">
                     Giriş Yap
@@ -43,14 +40,6 @@
         <!-- Mobile Navigation -->
         <div class="md:hidden mt-4 pb-4 border-t border-gray-700">
             <nav class="flex flex-col space-y-2 pt-4">
-                <a routerLink="/" 
-                   class="text-gray-300 hover:text-amber-400 font-medium text-sm py-2 transition-colors duration-200">
-                    Ana Sayfa
-                </a>
-                <a routerLink="/menuList" 
-                   class="text-gray-300 hover:text-amber-400 font-medium text-sm py-2 transition-colors duration-200">
-                    Menüler
-                </a>
                 <a routerLink="/login" 
                    class="text-gray-300 hover:text-amber-400 font-medium text-sm py-2 transition-colors duration-200">
                     Giriş Yap
