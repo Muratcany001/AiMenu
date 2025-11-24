@@ -26,37 +26,22 @@
                 </div>
                 <input type="text" 
                        class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 text-lg"
+                       
                        placeholder="Yemek adı, malzeme veya kategori arayın...">
-                <button class="absolute inset-y-0 right-0 pr-4 flex items-center">
+                       <button class="absolute inset-y-0 right-0 pr-4 flex items-center bg-purple-600 text-white rounded-r-xl px-4 py-2 hover:bg-purple-700 transition-colors duration-300">
+                        Arama yap
+                    </button>
+                <button class="bg-purple-600 text-white rounded-r-xl px-6 py-4 
+                hover:bg-purple-700 transition-colors duration-300
+                border-y-2 border-r-2 border-purple-600
+                -ml-px">
                     <svg class="h-6 w-6 text-purple-500 hover:text-purple-700 transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
-                    Sil
+                    Temizle
                 </button>
             </div>
-
-            <!-- Hızlı Filtreler -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-                <button class="flex items-center justify-center px-4 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-lg font-semibold text-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
-                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                    </svg>
-                    Popüler
-                </button>
-                <button class="flex items-center justify-center px-4 py-3 bg-white text-purple-600 border-2 border-purple-600 rounded-lg font-semibold text-sm hover:bg-purple-600 hover:text-white transition-all duration-300">
-                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                    Günün menüsü
-                </button>
-                <button class="flex items-center justify-center px-4 py-3 bg-white text-purple-600 border-2 border-purple-600 rounded-lg font-semibold text-sm hover:bg-purple-600 hover:text-white transition-all duration-300">
-                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"></path>
-                    </svg>
-                    Filtrele
-                </button>
-            </div>
-
+            
             <!-- Arama Sonuçları İstatistikleri -->
             <div class="flex flex-wrap items-center justify-between text-sm text-gray-600">
                 <div class="flex items-center">
@@ -88,6 +73,9 @@
                 Tümü
             </button>
             <button class="px-4 py-2 md:px-6 md:py-3 bg-white text-purple-600 border-2 border-purple-600 rounded-lg font-semibold text-sm md:text-base hover:bg-purple-600 hover:text-white transition-all duration-300">
+                Günün Menüsü
+            </button>
+            <button class="px-4 py-2 md:px-6 md:py-3 bg-white text-purple-600 border-2 border-purple-600 rounded-lg font-semibold text-sm md:text-base hover:bg-purple-600 hover:text-white transition-all duration-300">
                 Ana Yemekler
             </button>
             <button class="px-4 py-2 md:px-6 md:py-3 bg-white text-purple-600 border-2 border-purple-600 rounded-lg font-semibold text-sm md:text-base hover:bg-purple-600 hover:text-white transition-all duration-300">
@@ -102,10 +90,6 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
             <!-- Menu Item'lar buraya gelecek -->
             <app-daily-menu></app-daily-menu>
-            <app-menu-item></app-menu-item>
-            <app-menu-item></app-menu-item>
-            <app-menu-item></app-menu-item>
-            <app-menu-item></app-menu-item>
             <app-menu-item></app-menu-item>
             <app-menu-item></app-menu-item>
             <app-menu-item></app-menu-item>
