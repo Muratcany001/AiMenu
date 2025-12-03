@@ -6,7 +6,7 @@ import { Register } from './features/auth/components/register/register';
 import { DailyMenu } from './features/menu/components/menuComponent/daily-menu/daily-menu';
 import { AdminMenu } from './features/menu/components/adminMenuComponent/admin-menu/admin-menu';
 import { AddItem } from './features/menu/components/adminMenuComponent/add-item/add-item';
-import { Orders } from './features/menu/components/menuComponent/orders/orders';
+import { Orders } from './features/orders/components/orders/orders';
 
 
 export const routes: Routes = [

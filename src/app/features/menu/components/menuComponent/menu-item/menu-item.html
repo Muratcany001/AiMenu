@@ -47,7 +47,8 @@
 </div>
 
 <!-- Modal Popup -->
-<div *ngIf="openModal()" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999] p-4" (click)="closeModal()">
+ @if (isModalOpen) {
+<div  class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999] p-4" (click)="closeModal()">
     <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative z-[10000]" (click)="$event.stopPropagation()">
         <!-- Modal Header -->
         <div class="relative">
@@ -158,3 +159,4 @@
         </div>
     </div>
 </div>
+}

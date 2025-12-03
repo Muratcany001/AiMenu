@@ -7,7 +7,7 @@ import { MenuList } from '../../menuComponent/menu-list/menu-list';
 
 @Component({
   selector: 'app-admin-menu',
-  imports: [ReactiveFormsModule,CommonModule,MenuItem,DailyMenu,MenuList],
+  imports: [ReactiveFormsModule,CommonModule,MenuItem,DailyMenu],
   templateUrl: './admin-menu.html',
   styleUrl: './admin-menu.css'
 })
