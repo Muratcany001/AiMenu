@@ -25,4 +25,5 @@ export class MenuServices {
     getMenuItemByIngeredients(ingeredents:string): Observable<any>{
       return this.http.get<any>(`${this.apiUrl}getMenuItemByIngeredients/${ingeredents}`);
     }
+    
 }

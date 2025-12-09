@@ -20,4 +20,5 @@ export class AdminMenuServices {
   deleteMenuItem(id: string): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}deleteMenuItem/${id}`);
   }
+  
 }
