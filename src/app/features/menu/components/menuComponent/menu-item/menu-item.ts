@@ -18,4 +18,5 @@ export class MenuItem {
   closeModal() {
     this.isModalOpen = false;
   }
+  
 }
