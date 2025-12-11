@@ -2,7 +2,7 @@
     <!-- Yemek Resmi -->
     <div class="relative h-40 md:h-48 bg-gradient-to-br from-purple-600 to-purple-700 overflow-hidden">
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-4xl md:text-5xl opacity-30">
-            🍽️
+            {{product.imageUrl}}
         </div>
         <div class="absolute top-3 right-3 bg-amber-400 text-gray-900 px-2 py-1 rounded-full text-xs font-semibold">
             YENİ
@@ -14,16 +14,17 @@
         <!-- Başlık ve Fiyat -->
         <div class="flex justify-between items-start mb-3">
             <h3 class="text-lg md:text-xl font-semibold text-gray-900 leading-tight flex-1 mr-2">
-                Örnek Yemek Adı
+                {{product.name}}
             </h3>
             <span class="text-lg md:text-xl font-bold text-purple-600 whitespace-nowrap">
-                ₺45
+                Yalnizca {{product.price}} ₺
             </span>
         </div>
 
         <!-- Açıklama -->
         <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-4 flex-1 line-clamp-2">
-            Lezzetli ve taze malzemelerle hazırlanmış özel yemek. Geleneksel tariflerimizle modern sunum.
+            {{product.description}}
+            {{product.category}}
         </p>
 
         <!-- Alt Bilgiler -->
@@ -35,7 +36,7 @@
                 <span class="text-xs md:text-sm text-gray-500">(4.8)</span>
             </div>
             <span class="text-xs md:text-sm font-semibold text-green-600 bg-green-100 px-2 py-1 rounded">
-                Stokta
+                 {{product.ingeredents}}
             </span>
         </div>
 
@@ -71,10 +72,10 @@
             <!-- Başlık ve Fiyat -->
             <div class="flex justify-between items-start mb-6">
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-900 leading-tight flex-1 mr-4">
-                    Örnek Yemek Adı
+                    {{product.name}}
                 </h2>
                 <div class="text-right">
-                    <div class="text-3xl md:text-4xl font-bold text-purple-600">₺45</div>
+                    <div class="text-3xl md:text-4xl font-bold text-purple-600">₺{{product.price}}</div>
                     <div class="text-sm text-gray-500">porsiyon</div>
                 </div>
             </div>
@@ -83,23 +84,23 @@
             <div class="mb-6">
                 <h3 class="text-lg font-semibold text-gray-900 mb-3">Açıklama</h3>
                 <p class="text-gray-700 leading-relaxed">
-                    Lezzetli ve taze malzemelerle hazırlanmış özel yemek. Geleneksel tariflerimizle modern sunum. 
-                    Özenle seçilmiş malzemeler ve uzman şeflerimizin deneyimiyle hazırlanan bu yemek, 
-                    damak zevkinize hitap edecek mükemmel bir lezzet sunuyor.
+                    {{product}}
                 </p>
             </div>
 
             <!-- Malzemeler -->
             <div class="mb-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-3">Malzemeler</h3>
+                <h3 class="text-lg font-semibold text-gray-900 mb-3">Besin icerikleri</h3>
                 <div class="flex flex-wrap gap-2">
-                    <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Tavuk</span>
-                    <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Pirinç</span>
-                    <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Sebze</span>
-                    <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Baharat</span>
+                     {{product.ingeredents}}
                 </div>
             </div>
-
+            <div class="mb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-3">Besin kategorisi</h3>
+                <div class="flex flex-wrap gap-2">
+                     {{product.category}}
+                </div>
+            </div>
             <!-- Besin Değerleri -->
             <div class="mb-6">
                 <h3 class="text-lg font-semibold text-gray-900 mb-3">Besin Değerleri</h3>
@@ -153,7 +154,7 @@
                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                     </svg>
-                    test
+                    Adet sayisi gir
                 </button>
             </div>
         </div>

@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MenuServices } from '../../../services/menuServices/menu-services';
+import { menuItemDto } from '../../adminMenuComponent/models/MenuItemDto/menuItemDto';
 
 
 @Component({
@@ -8,8 +10,18 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [ReactiveFormsModule],
   templateUrl: './menu-item.html',
 })
-export class MenuItem {
+export class MenuItem implements OnInit{
   isModalOpen = false;
+  menuItemForm! :FormGroup;
+  errorMessage: string = ''
+
+  constructor(
+    private menuService: MenuServices,
+    private formBuilder: FormBuilder,
+    private fb: FormBuilder
+  ) {
+  }
+  @Input() product!: menuItemDto;
 
   openModal() {
     this.isModalOpen = true;
@@ -19,4 +31,5 @@ export class MenuItem {
     this.isModalOpen = false;
   }
   
+  ngOnInit(): void {}
 }
