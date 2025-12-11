@@ -46,14 +46,15 @@ const registerData = Object.assign({}, this.registerForm.value);
 this.authService.register(registerData).subscribe({
   next: (response) =>{
     console.log('kayit basarili');
+    this.errorMessage= 'Kullanici kaydi basarili, ana sayfaya yonlendiriliyorsunuz';
     localStorage.setItem('token', response.token);
     this.isLoading = false;
-    this.router.navigate(['/menu'])
+    this.router.navigate(['/login'])
   },
   error: (err) =>{
     console.log("kayit islemi basarisiz");
     console.error(err);
-    this.errorMessage= "kayit yapilamiyor";
+    this.errorMessage= "kayit yapilamiyor, lutfen bilgilerinizi kontrol edin ve tekrar deneyin";
     this.isLoading=false;
   }
     

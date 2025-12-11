@@ -40,16 +40,15 @@ export class Login  {
   this.authService.login(userData).subscribe({
     next: (response) => {
       localStorage.setItem('token', response.token);
+      console.log('Login successful:', response);
       this.router.navigate(['/menu'])
       this.isLoading = false;
     },
     error: (error) => {
-      this.errorMessage = 'Login failed. Please check your credentials and try again.';
+      this.errorMessage = 'E posta veya sifreniz yanlis. Lutfen bilgilerinizi kontrol edin ve tekrar deneyin.';
+      console.log('Login error:', error);
       this.isLoading = false;
     }
   });
-
-
 }
-
 }

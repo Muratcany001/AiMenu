@@ -88,13 +88,14 @@
 
         <!-- Menü Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
-            <!-- Menu Item'lar buraya gelecek -->
-            <app-daily-menu></app-daily-menu>
-            <app-menu-item></app-menu-item>
-            <app-menu-item></app-menu-item>
-            <app-menu-item></app-menu-item>
-            <app-menu-item></app-menu-item>
-            <app-menu-item></app-menu-item>
+            @for (item of products; track item.id) {
+                <app-menu-item [product]="item"></app-menu-item>
+            }
+            @empty {
+                <div class="col-span-full text-center py-12">
+                    <p class="text-gray-600 text-lg">Gösterilecek menü bulunamadı.</p>
+                </div>
+            }
         </div>
     </div>
 </div>
