@@ -24,25 +24,27 @@ export class MenuList implements OnInit {
     private route: ActivatedRoute,
     private fb: FormBuilder) {
     this.menuListForm = this.fb.group({
-      Name: [''],
-      Description: [''],
-      Price: [''],
-      Category: [''],
-      Ingredients: [''],
-      ImageUrl: ['']
+      name: [''],
+      description: [''],
+      price: [''],
+      category: [''],
+      ingeredents: [''],
+      imageUrl: ['']
     });
-
-
   }
   ngOnInit(): void {
+    this.isLoading = true;
     this.menuService.getAllMenuItems().subscribe({
       next: (response) => {
         console.log('Menu items fetched successfully:', response);
-        this.products = response.data;
-        console.log('veri tabanindan cekilen urunler',this.products);
+        // API returns either an array or an object with 'data' property. Prefer array if available.
+        this.products = Array.isArray(response) ? response : (response?.data || []);
+        console.log('veri tabanindan cekilen urunler', this.products);
+        this.isLoading = false;
       },
       error: (error) => {
         this.errorMessage = 'Failed to fetch menu items. Please try again later.';
+        this.isLoading = false;
       }
     });
   }

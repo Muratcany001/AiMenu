@@ -31,12 +31,12 @@
         <div class="flex justify-between items-center mb-4">
             <div class="flex items-center gap-2">
                 <div class="flex text-amber-400 text-sm md:text-base">
-                    ★★★★★
+                    {{product.category}}
                 </div>
                 <span class="text-xs md:text-sm text-gray-500">(4.8)</span>
             </div>
             <span class="text-xs md:text-sm font-semibold text-green-600 bg-green-100 px-2 py-1 rounded">
-                 {{product.ingeredents}}
+                 {{product.category}}
             </span>
         </div>
 
@@ -56,11 +56,11 @@
             <div class="h-48 bg-gradient-to-br from-purple-600 to-purple-700 rounded-t-2xl flex items-center justify-center">
                 <div class="text-white text-6xl opacity-30">🍽️</div>
             </div>
-            <button (click)="closeModal()" class="absolute top-4 right-4 bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-full p-2 transition-all duration-200">
+            <button (click)="closeModal()" aria-label="close modal" class="absolute top-4 right-4 bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-full p-2 transition-all duration-200">
                 <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
-                test2
+                
             </button>
             <div class="absolute top-4 left-4 bg-amber-400 text-gray-900 px-3 py-1 rounded-full text-sm font-semibold">
                 YENİ

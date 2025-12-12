@@ -1,47 +1,51 @@
+
 <div class="min-h-screen bg-gradient-to-br from-slate-100 to-slate-300 py-8">
     <div class="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12">
       
       <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mb-6 tracking-tight drop-shadow-sm">
         Yeni yemek ekle
       </h2>
-  
-      <form class="bg-white rounded-xl shadow-lg p-6 md:p-8 mb-8">
+      
+      <form formGroup="addItemForm" (ngSubmit)="onAddItem(isDailyMenu)" class="bg-white rounded-xl shadow-lg p-6 md:p-8 mb-8">
         
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 mb-12">
           
           <div>
             <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Yemek adı</label>
             <input type="text" id="name" placeholder="Örn: Adana Kebap"
+            formControlName="name"
                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500">
           </div>
   
           <div>
             <label for="price" class="block text-sm font-medium text-gray-700 mb-2">Yemek Fiyatı (₺)</label>
-            <input type="number" id="price" placeholder="Örn: 200"
+            <input type="number" id="price" placeholder="Örn: 200" formControlName="price"
                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500">
           </div>
   
           <div>
             <label for="description" class="block text-sm font-medium text-gray-700 mb-2">Yemek açıklaması</label>
             <input type="text" id="description" placeholder="Örn: 100gr marine edilmiş et..."
+                   formControlName="description"
                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500">
           </div>
   
           <div>
             <label for="category" class="block text-sm font-medium text-gray-700 mb-2">Yemek kategorisi</label>
-            <input type="text" id="category" placeholder="Örn: Ana yemek"
+            <input type="text" id="category" placeholder="Örn: Ana yemek" formControlName="category"
                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500">
           </div>
   
           <div>
             <label for="ingredients" class="block text-sm font-medium text-gray-700 mb-2">Yemek içerikleri</label>
-            <input type="text" id="ingredients" placeholder="Örn: Et,Soğan,Kapya biber,Yag"
+            <input type="text" id="ingeredents" placeholder="Örn: Et,Soğan,Kapya biber,Yag"
+            formControlName="ingeredents"
                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500">
           </div>
   
           <div>
             <label for="imageUrl" class="block text-sm font-medium text-gray-700 mb-2">Yemek Resmi (Url)</label>
-            <input type="text" id="imageUrl" placeholder="https://..."
+            <input type="text" id="imageUrl" placeholder="https://..." formControlName="imageUrl"
                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500">
           </div>
         </div>
@@ -51,11 +55,11 @@
             İptal
           </button>
           
-          <button type="button" class="bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-700 hover:to-purple-600 text-white py-3 px-6 rounded-xl font-semibold text-base shadow-lg hover:shadow-xl transition-transform duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-purple-400">
+          <button (click)="addToDailyMenu()" type="button" class="bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-700 hover:to-purple-600 text-white py-3 px-6 rounded-xl  font-semibold text-base shadow-lg hover:shadow-xl transition-transform duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-purple-400">
             Günün menüsünü ekle
           </button>
           
-          <button type="submit" class="bg-gradient-to-r from-yellow-600 to-purple-500 hover:from-purple-700 hover:to-purple-600 text-white py-3 px-6 rounded-xl font-semibold text-base shadow-lg hover:shadow-xl transition-transform duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-purple-400">
+          <button (click)="addToMainMenu()" type="submit" class="bg-gradient-to-r from-yellow-600 to-purple-500 hover:from-purple-700 hover:to-purple-600 text-white py-3 px-6 rounded-xl font-semibold text-base shadow-lg hover:shadow-xl transition-transform duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-purple-400">
             Ana menüye ekle
           </button>
         </div>

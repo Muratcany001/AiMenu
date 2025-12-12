@@ -8,10 +8,11 @@ import { AdminMenuServices } from '../../../services/adminMenuServices/admin-men
 import { ActivatedRoute, Router } from '@angular/router';
 import { addMenuItemDto } from '../../../models/addMenuItemDto';
 import { MenuServices } from '../../../services/menuServices/menu-services';
+import { menuItemDto } from '../models/MenuItemDto/menuItemDto';
 
 @Component({
   selector: 'app-admin-menu',
-  imports: [ReactiveFormsModule,CommonModule,MenuItem,DailyMenu],
+  imports: [ReactiveFormsModule,CommonModule,MenuItem],
   templateUrl: './admin-menu.html',
   styleUrl: './admin-menu.css'
 })
@@ -20,7 +21,7 @@ export class AdminMenu implements OnInit {
   addItemForm!: FormGroup;
   errorMessage: string = '';
   isLoading: boolean = false;
-
+  products: menuItemDto[]= [];
   constructor(
     private adminMenuService: AdminMenuServices,
     private menuService: MenuServices,
@@ -30,12 +31,12 @@ export class AdminMenu implements OnInit {
     private formBuilder: FormBuilder
   ){
       this.addItemForm = this.formBuilder.group({
-        Name: [''],
-        Description: [''],
-        Price: [''],
-        Category: [''],
-        Ingeredients: [''],
-        ImageUrl: ['']
+        name: [''],
+        description: [''],
+        price: [''],
+        category: [''],
+        ingredients: [''],
+        imageUrl: ['']
     })
     }
 
@@ -43,6 +44,7 @@ export class AdminMenu implements OnInit {
     this.menuService.getAllMenuItems().subscribe({
         next: (response) => {
           console.log('Menu items fetched successfully:', response);
+          this.products= response.data;
         },
         error: (error) => {
           this.errorMessage = 'Failed to fetch menu items. Please try again later.';

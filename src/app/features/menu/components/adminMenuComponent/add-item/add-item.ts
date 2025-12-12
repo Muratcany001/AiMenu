@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, ɵInternalFormsSharedModule } from '@angular/forms';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { addMenuItemDto } from '../../../models/addMenuItemDto';
 import { AdminMenuServices } from '../../../services/adminMenuServices/admin-menu-services';
@@ -8,7 +8,7 @@ import { MenuServices } from '../../../services/menuServices/menu-services';
 
 @Component({
   selector: 'app-add-item',
-  imports: [CommonModule,],
+  imports: [CommonModule, ɵInternalFormsSharedModule],
   templateUrl: './add-item.html',
   styleUrl: './add-item.css'
 })
@@ -16,6 +16,7 @@ export class AddItem{
   addItemForm!: FormGroup;
   errorMessage: string = ''
   isLoading: boolean = false;
+  isDailyMenu: boolean = false;
   constructor(
     private menuService: MenuServices,
     private adminMenuService: AdminMenuServices,
