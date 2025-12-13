@@ -6,10 +6,9 @@
         Yeni yemek ekle
       </h2>
       
-      <form formGroup="addItemForm" (ngSubmit)="onAddItem(isDailyMenu)" class="bg-white rounded-xl shadow-lg p-6 md:p-8 mb-8">
+      <form [formGroup]="addItemForm" (ngSubmit)="onAddItem()" class="bg-white rounded-xl shadow-lg p-6 md:p-8 mb-8">
         
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 mb-12">
-          
           <div>
             <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Yemek adı</label>
             <input type="text" id="name" placeholder="Örn: Adana Kebap"
@@ -56,11 +55,7 @@
           </button>
           
           <button (click)="addToDailyMenu()" type="button" class="bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-700 hover:to-purple-600 text-white py-3 px-6 rounded-xl  font-semibold text-base shadow-lg hover:shadow-xl transition-transform duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-purple-400">
-            Günün menüsünü ekle
-          </button>
-          
-          <button (click)="addToMainMenu()" type="submit" class="bg-gradient-to-r from-yellow-600 to-purple-500 hover:from-purple-700 hover:to-purple-600 text-white py-3 px-6 rounded-xl font-semibold text-base shadow-lg hover:shadow-xl transition-transform duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-purple-400">
-            Ana menüye ekle
+            Menüye ekle
           </button>
         </div>
   

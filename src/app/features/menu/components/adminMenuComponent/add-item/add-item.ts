@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ɵInternalFormsSharedModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { addMenuItemDto } from '../../../models/addMenuItemDto';
 import { AdminMenuServices } from '../../../services/adminMenuServices/admin-menu-services';
@@ -8,7 +8,8 @@ import { MenuServices } from '../../../services/menuServices/menu-services';
 
 @Component({
   selector: 'app-add-item',
-  imports: [CommonModule, ɵInternalFormsSharedModule],
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './add-item.html',
   styleUrl: './add-item.css'
 })
@@ -24,38 +25,38 @@ export class AddItem{
     private route: ActivatedRoute,
     private router: Router,
     private formBuilder: FormBuilder
-  ){}
-
-  addToMainMenu(): void {
-    this.onAddItem(false);
+  ){
+    this.addItemForm = this.formBuilder.group({
+      name: [''],
+      price: [''],
+      description: [''],
+      category: [''],
+      ingeredents: [''],
+      imageUrl: ['']
+    })
   }
 
   addToDailyMenu(): void {
-    this.onAddItem(true);
+    this.onAddItem();
   }
 
-  onAddItem(isDailyMenu:boolean): void {
+  onAddItem(): void {
       if (this.addItemForm.invalid) {
-        this.isLoading = true;
         this.addItemForm.markAllAsTouched();
+        this.isLoading = false;
         return;
       }
-      let finalCategory = this.addItemForm.value.Category;
-
-      if(isDailyMenu){
-        finalCategory = 'SpecialDaily';
-      }
-
       const newItem : addMenuItemDto = Object.assign({}, this.addItemForm.value);
-      newItem.category = finalCategory;
 
       this.adminMenuService.addMenuItem(newItem).subscribe({
         next: (response) => {
-          this.router.navigate(['/admin-menu']);
           console.log('Item added successfully:', response);
           this.isLoading = false;
+          alert('Yemek başarıyla eklendi');
+          this.router.navigate(['/adminMenu']);
         },
         error: (error) => {
+          console.error('Add item error:', error);
           this.errorMessage = 'Adding item failed. Please check the data and try again.';
           this.isLoading = false;
         }

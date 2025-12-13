@@ -9,10 +9,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { addMenuItemDto } from '../../../models/addMenuItemDto';
 import { MenuServices } from '../../../services/menuServices/menu-services';
 import { menuItemDto } from '../models/MenuItemDto/menuItemDto';
+import { AddItem } from "../add-item/add-item";
 
 @Component({
   selector: 'app-admin-menu',
-  imports: [ReactiveFormsModule,CommonModule,MenuItem],
+  imports: [ReactiveFormsModule, CommonModule, MenuItem, AddItem],
   templateUrl: './admin-menu.html',
   styleUrl: './admin-menu.css'
 })
@@ -22,6 +23,8 @@ export class AdminMenu implements OnInit {
   errorMessage: string = '';
   isLoading: boolean = false;
   products: menuItemDto[]= [];
+  isAddModalOpen: boolean = false;
+  isDailyMenu: boolean = false;
   constructor(
     private adminMenuService: AdminMenuServices,
     private menuService: MenuServices,
@@ -52,6 +55,15 @@ export class AdminMenu implements OnInit {
       });
     }
 
+    openAddModal() {
+      this.isAddModalOpen = true;
+    }
+
+    closeAddModal() {
+      this.isAddModalOpen = false;
+      this.addItemForm.reset();
+    }
+
     onDeletItem(): void{
       if(this.addItemForm.invalid){
         this.isLoading = true;
@@ -59,7 +71,6 @@ export class AdminMenu implements OnInit {
         return;
       }
       const itemId = this.route.snapshot.paramMap.get('id') || '';
-
       this.adminMenuService.deleteMenuItem(itemId).subscribe({
         next: (response) => {
           this.router.navigate(['/admin-menu']);
@@ -73,4 +84,26 @@ export class AdminMenu implements OnInit {
         }
       });
     }
-}
+
+    onUpdateItem(): void {
+      if (this.addItemForm.invalid) {
+        this.isLoading = true;
+        this.addItemForm.markAllAsTouched();
+        return;
+      }
+      const itemId = this.route.snapshot.paramMap.get('id') || '';
+      const updateItemDto : addMenuItemDto = Object.assign({}, this.addItemForm.value);
+      this.adminMenuService.updateMenuItem(itemId, updateItemDto).subscribe({
+        next: (response) => {
+          this.router.navigate(['/admin-menu']);
+          alert(`Item updated successfully: ${response}`);
+          this.isLoading = false;
+        },
+        error: (error) =>{
+          console.error('Error updating item:', error);
+          this.errorMessage = 'Updating item failed. Please check the data and try again.';
+          this.isLoading = false;
+        }
+      });
+    }
+  }

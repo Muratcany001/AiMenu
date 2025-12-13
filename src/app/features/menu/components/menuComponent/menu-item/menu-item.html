@@ -4,21 +4,26 @@
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-4xl md:text-5xl opacity-30">
             {{product.imageUrl}}
         </div>
-        <div class="absolute top-3 right-3 bg-amber-400 text-gray-900 px-2 py-1 rounded-full text-xs font-semibold">
-            YENİ
+        @if (product.category == "Günün menüsü") {
+        <div class="absolute top-3 right-3 bg-red-400 text-gray-900 px-2 py-1 rounded-full text-xs font-semibold">
+         Günün menüsü   
         </div>
+        }
+        @else {
+            <div class="absolute top-3 right-3 bg-amber-400 text-gray-900 px-2 py-1 rounded-full text-xs font-semibold">
+         Sizin için en iyisi   
+        </div>
+        }
     </div>
 
     <!-- İçerik -->
     <div class="p-4 md:p-6 flex-1 flex flex-col">
         <!-- Başlık ve Fiyat -->
-        <div class="flex justify-between items-start mb-3">
-            <h3 class="text-lg md:text-xl font-semibold text-gray-900 leading-tight flex-1 mr-2">
+        <div class="flex  justify-between items-start mb-3 min-w-0 gap-2">
+            <h3 class="text-lg  md:text-xl font-semibold text-gray-900 leading-tight flex-1 mr-2">
                 {{product.name}}
             </h3>
-            <span class="text-lg md:text-xl font-bold text-purple-600 whitespace-nowrap">
-                Yalnizca {{product.price}} ₺
-            </span>
+            
         </div>
 
         <!-- Açıklama -->
@@ -36,7 +41,7 @@
                 <span class="text-xs md:text-sm text-gray-500">(4.8)</span>
             </div>
             <span class="text-xs md:text-sm font-semibold text-green-600 bg-green-100 px-2 py-1 rounded">
-                 {{product.category}}
+                Yalnızca {{product.price}} ₺
             </span>
         </div>
 
@@ -70,12 +75,12 @@
         <!-- Modal Content -->
         <div class="p-6 md:p-8">
             <!-- Başlık ve Fiyat -->
-            <div class="flex justify-between items-start mb-6">
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 leading-tight flex-1 mr-4">
+            <div class="line-clamp-1 flex justify-between items-start mb-6">
+                <h2 class="line-clamp-2 text-2xl md:text-3xl font-bold text-gray-900 leading-tight flex-1 mr-4">
                     {{product.name}}
                 </h2>
                 <div class="text-right">
-                    <div class="text-3xl md:text-4xl font-bold text-purple-600">₺{{product.price}}</div>
+                    <div class="text-3xl md:text-4xl font-bold text-purple-600 line-clamp-2">₺{{product.price}}</div>
                     <div class="text-sm text-gray-500">porsiyon</div>
                 </div>
             </div>
