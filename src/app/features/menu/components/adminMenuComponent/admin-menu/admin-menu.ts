@@ -44,7 +44,11 @@ export class AdminMenu implements OnInit {
     }
 
     ngOnInit(): void {
-    this.menuService.getAllMenuItems().subscribe({
+    this.refreshMenuItems();
+    }
+
+    refreshMenuItems(): void {
+      this.menuService.getAllMenuItems().subscribe({
         next: (response) => {
           console.log('Menu items fetched successfully:', response);
           this.products= response.data;
@@ -64,16 +68,15 @@ export class AdminMenu implements OnInit {
       this.addItemForm.reset();
     }
 
-    onDeletItem(): void{
-      if(this.addItemForm.invalid){
-        this.isLoading = true;
-        this.addItemForm.markAllAsTouched();
+    onDeleteItem(itemId: string): void{
+      if(!confirm("Bu yemeği silmek istediğinize emin misiniz?")) {
         return;
-      }
-      const itemId = this.route.snapshot.paramMap.get('id') || '';
+    }
+    this.isLoading=true;
       this.adminMenuService.deleteMenuItem(itemId).subscribe({
         next: (response) => {
-          this.router.navigate(['/admin-menu']);
+          this.router.navigate(['/adminMenu']);
+          
           console.log('Item deleted successfully:', response);
           this.isLoading = false;
         },
