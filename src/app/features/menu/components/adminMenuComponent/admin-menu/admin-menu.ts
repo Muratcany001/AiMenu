@@ -66,6 +66,7 @@ export class AdminMenu implements OnInit {
     closeAddModal() {
       this.isAddModalOpen = false;
       this.addItemForm.reset();
+      this.refreshMenuItems();
     }
 
     onDeleteItem(itemId: string): void{

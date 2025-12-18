@@ -69,19 +69,19 @@
 
         <!-- Menü Kategorileri -->
         <div class="flex flex-wrap justify-center gap-3 md:gap-4 mb-8 md:mb-12">
-            <button class="px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-lg font-semibold text-sm md:text-base shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
+            <button (click)="refreshMenuItems()" class="px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-lg font-semibold text-sm md:text-base shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
                 Tümü
             </button>
-            <button class="px-4 py-2 md:px-6 md:py-3 bg-white text-purple-600 border-2 border-purple-600 rounded-lg font-semibold text-sm md:text-base hover:bg-purple-600 hover:text-white transition-all duration-300">
+            <button (click)="getMenuItemsByCategory('Günün menüsü')" class="px-4 py-2 md:px-6 md:py-3 bg-white text-purple-600 border-2 border-purple-600 rounded-lg font-semibold text-sm md:text-base hover:bg-purple-600 hover:text-white transition-all duration-300">
                 Günün Menüsü
             </button>
-            <button class="px-4 py-2 md:px-6 md:py-3 bg-white text-purple-600 border-2 border-purple-600 rounded-lg font-semibold text-sm md:text-base hover:bg-purple-600 hover:text-white transition-all duration-300">
+            <button (click)="getMenuItemsByCategory('Ana Yemek')" class="px-4 py-2 md:px-6 md:py-3 bg-white text-purple-600 border-2 border-purple-600 rounded-lg font-semibold text-sm md:text-base hover:bg-purple-600 hover:text-white transition-all duration-300">
                 Ana Yemekler
             </button>
-            <button class="px-4 py-2 md:px-6 md:py-3 bg-white text-purple-600 border-2 border-purple-600 rounded-lg font-semibold text-sm md:text-base hover:bg-purple-600 hover:text-white transition-all duration-300">
+            <button (click)="getMenuItemsByCategory('İçecek')" class="px-4 py-2 md:px-6 md:py-3 bg-white text-purple-600 border-2 border-purple-600 rounded-lg font-semibold text-sm md:text-base hover:bg-purple-600 hover:text-white transition-all duration-300">
                 İçecekler
             </button>
-            <button class="px-4 py-2 md:px-6 md:py-3 bg-white text-purple-600 border-2 border-purple-600 rounded-lg font-semibold text-sm md:text-base hover:bg-purple-600 hover:text-white transition-all duration-300">
+            <button (click)="getMenuItemsByCategory('Tatlı')" class="px-4 py-2 md:px-6 md:py-3 bg-white text-purple-600 border-2 border-purple-600 rounded-lg font-semibold text-sm md:text-base hover:bg-purple-600 hover:text-white transition-all duration-300">
                 Tatlılar
             </button>
         </div>

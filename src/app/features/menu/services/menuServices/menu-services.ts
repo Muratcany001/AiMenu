@@ -17,7 +17,7 @@ export class MenuServices {
         return this.http.get<any>(`${this.apiUrl}getMenuItemById/${id}`);
     }
     getMenuItemByCategory(category:string): Observable<any> {
-      return this.http.get<any>(`${this.apiUrl}getMenuItemByCategory/${category}`)
+      return this.http.get<any>(`${this.apiUrl}getMenuItemsByCategory/${category}`)
     }
     getMenuItemsByName(name: string): Observable<any> {
         return this.http.get<any>(`${this.apiUrl}getMenuItemsByName/${name}`);
