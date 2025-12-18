@@ -39,6 +39,16 @@ export class AddItem{
   addToDailyMenu(): void {
     this.onAddItem();
   }
+  refreshMenuItems(): void {
+    this.menuService.getAllMenuItems().subscribe({
+      next: (response) => {
+        console.log('Menu items refreshed:', response);
+      },
+      error: (error) => {
+        console.error('Error refreshing menu items:', error);
+      }
+    });
+  }
 
   onAddItem(): void {
       if (this.addItemForm.invalid) {
@@ -53,7 +63,7 @@ export class AddItem{
           console.log('Item added successfully:', response);
           this.isLoading = false;
           alert('Yemek başarıyla eklendi');
-          this.router.navigate(['/adminMenu']);
+          this.refreshMenuItems();
         },
         error: (error) => {
           console.error('Add item error:', error);
