@@ -18,6 +18,7 @@
             </div>
             
             <!-- Arama Input -->
+            <form [formGroup]="searchForm" (ngSubmit)="onSearchMenuItems()">
             <div class="relative mb-6">
                 <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                     <svg class="h-6 w-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -25,10 +26,11 @@
                     </svg>
                 </div>
                 <input type="text" 
+                        formControlName="searchTerm"
                        class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 text-lg"
                        
                        placeholder="Yemek adı, malzeme veya kategori arayın...">
-                       <button class="absolute inset-y-0 right-0 pr-4 flex items-center bg-purple-600 text-white rounded-r-xl px-4 py-2 hover:bg-purple-700 transition-colors duration-300">
+                       <button (click)="onSearchMenuItems()" class="absolute inset-y-0 right-0 pr-4 flex items-center bg-purple-600 text-white rounded-r-xl px-4 py-2 hover:bg-purple-700 transition-colors duration-300">
                         Arama yap
                     </button>
                 <button class="bg-purple-600 text-white rounded-r-xl px-6 py-4 
@@ -41,7 +43,7 @@
                     Temizle
                 </button>
             </div>
-            
+            </form>
             <!-- Arama Sonuçları İstatistikleri -->
             <div class="flex flex-wrap items-center justify-between text-sm text-gray-600">
                 <div class="flex items-center">

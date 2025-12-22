@@ -25,5 +25,8 @@ export class MenuServices {
     getMenuItemByIngeredients(ingeredents:string): Observable<any>{
       return this.http.get<any>(`${this.apiUrl}getMenuItemByIngeredients/${ingeredents}`);
     }
+    getMenuItemsBySearchTerm(searchTerm: string): Observable<any> {
+      return this.http.get<any>(`${this.apiUrl}searchMenuItems?searchTerm=${searchTerm}`);
+    }
     
 }
