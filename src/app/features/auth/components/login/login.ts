@@ -4,6 +4,8 @@ import { AuthService } from '../../services/auth-service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginDto } from '../../models/loginDto';
 import { CommonModule } from '@angular/common';
+import { Token } from '@angular/compiler';
+import { jwtDecode } from 'jwt-decode';
 @Component({
   selector: 'app-login',
   imports: [ReactiveFormsModule,CommonModule],
@@ -40,8 +42,18 @@ export class Login  {
   this.authService.login(userData).subscribe({
     next: (response) => {
       localStorage.setItem('token', response.token);
-      console.log('Login successful:', response);
-      this.router.navigate(['/menu'])
+      
+      const token = localStorage.getItem('token');
+      if(!token) return console.log('Giris islemi basarisiz');
+      const decodedToken : any = jwtDecode(token);
+      const role = decodedToken.role;
+      if(role=='Admin'){
+        this.router.navigate(['/adminMenu'])
+      }
+      else{
+      console.log("yetkiniz yok")
+      this.router.navigate(['/menuList'])
+      }
       this.isLoading = false;
     },
     error: (error) => {
@@ -51,4 +63,12 @@ export class Login  {
     }
   });
 }
+  decodeToken(token: string): any {
+  try{
+    const payload = token.split('.')[1];
+    return JSON.parse(atob(payload));
+  } catch (e) {
+    return null;
+  }
+  }
 }

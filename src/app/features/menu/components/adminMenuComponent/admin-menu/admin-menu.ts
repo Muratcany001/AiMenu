@@ -43,6 +43,8 @@ export class AdminMenu implements OnInit {
     })
     }
 
+
+
     ngOnInit(): void {
     this.refreshMenuItems();
     }
@@ -77,7 +79,7 @@ export class AdminMenu implements OnInit {
       this.adminMenuService.deleteMenuItem(itemId).subscribe({
         next: (response) => {
           this.router.navigate(['/adminMenu']);
-          
+          this.refreshMenuItems();
           console.log('Item deleted successfully:', response);
           this.isLoading = false;
         },
