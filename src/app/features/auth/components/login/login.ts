@@ -40,8 +40,15 @@ export class Login  {
   this.authService.login(userData).subscribe({
     next: (response) => {
       localStorage.setItem('token', response.token);
-      console.log('Login successful:', response);
+      
+  
+      if(token.role=='Admin'){
+        this.router.navigate(['/adminMenu'])
+      }
+      else{
+      console.log("yetkiniz yok")
       this.router.navigate(['/menu'])
+      }
       this.isLoading = false;
     },
     error: (error) => {
@@ -51,4 +58,12 @@ export class Login  {
     }
   });
 }
+  decodeToken(token: string): any {
+  try{
+    const payload = token.split('.')[1];
+    return JSON.parse(atob(payload));
+  } catch (e) {
+    return null;
+  }
+  }
 }

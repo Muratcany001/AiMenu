@@ -7,6 +7,7 @@ import { DailyMenu } from './features/menu/components/menuComponent/daily-menu/d
 import { AdminMenu } from './features/menu/components/adminMenuComponent/admin-menu/admin-menu';
 import { AddItem } from './features/menu/components/adminMenuComponent/add-item/add-item';
 import { Orders } from './features/orders/components/orders/orders';
+import { authGuard } from './core/guards/auth-guard';
 
 
 export const routes: Routes = [
@@ -28,12 +29,12 @@ export const routes: Routes = [
     component : Register
 },
 {
-
     path : 'dailyMenu',
     component:DailyMenu
 },
 {
     path : 'adminMenu',
+    canActivate:[authGuard],
     component:AdminMenu
 },
 {
