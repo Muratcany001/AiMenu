@@ -35,9 +35,15 @@
         <!-- Alt Bilgiler -->
         <div class="flex justify-between items-center mb-4">
             <div class="flex items-center gap-2">
-                <div class="flex text-amber-400 text-sm md:text-base">
+                @if (product.category == "Günün Menüsü") {
+                    <div class=" text-red-400 text-l ">
                     {{product.category}}
                 </div>
+                }@else {
+                <div class="flex text-amber-300 text-sm md:text-base">
+                    {{product.category}}
+                </div>
+                }
             </div>
             <span class="text-xs md:text-sm font-semibold text-green-600 bg-green-100 px-2 py-1 rounded">
                 Yalnızca {{product.price}} ₺

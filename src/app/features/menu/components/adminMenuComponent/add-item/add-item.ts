@@ -18,6 +18,8 @@ export class AddItem{
   errorMessage: string = ''
   isLoading: boolean = false;
   isDailyMenu: boolean = false;
+  selectedOption : string = "";
+  options = ['Ana yemek', 'Çorba', 'Salata', 'Izgara', 'Günün Menüsü', 'Tatlı', 'İçecek', 'Yan ürünler', 'Şefin spesiyali']
   constructor(
     private menuService: MenuServices,
     private adminMenuService: AdminMenuServices,

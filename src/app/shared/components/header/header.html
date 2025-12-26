@@ -16,7 +16,7 @@
             @if(!isLoggedIn()){
             <nav class="hidden md:flex items-center gap-6">
                 <a routerLink="/login" 
-                   class="text-gray-300 hover:text-amber-400 font-medium text-sm py-2 border-b-2 border-transparent hover:border-amber-400 transition-all duration-300">
+                   class="text-white-900 hover:text-amber-400 font-medium text-sm py-2 border-b-2 border-transparent hover:border-amber-400 transition-all duration-300">
                     Giriş Yap
                 </a>
                 <a routerLink="/register" 
@@ -27,11 +27,11 @@
             }@else{
                 <nav class="hidden md:flex items-center gap-6">
                     <a routerLink="/orders" 
-                    class="text-gray-300 hover:text-amber-400 font-medium text-sm py-2 border-b-2 border-transparent hover:border-amber-400 transition-all duration-500">
+                    class="text-white-900 hover:text-amber-400 font-medium text-sm py-2 border-b-2 border-transparent hover:border-amber-400 transition-all duration-500">
                         Siparişlerim
                     </a>
                     <a (click)="onLogout()" 
-                    class="text-gray-300 hover:text-amber-400 font-medium text-sm py-2 border-b-2 border-transparent hover:border-amber-400 transition-all duration-500">
+                    class="text-white-900 hover:text-amber-400 font-medium text-sm py-2 border-b-2 border-transparent hover:border-amber-400 transition-all duration-500">
                         Çıkış yap
                     </a>
                 </nav>
