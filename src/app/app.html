@@ -1,5 +1,7 @@
-<app-header></app-header>
-<main>
-<router-outlet />
-</main>
-<app-footer></app-footer>
+<div class="flex flex-col min-h-screen">
+    <app-header></app-header>
+    <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
+    <router-outlet />
+    </main>
+    <app-footer></app-footer>
+</div>
