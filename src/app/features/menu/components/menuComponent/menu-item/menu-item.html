@@ -1,131 +1,115 @@
-<div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-amber-400 overflow-hidden h-full flex flex-col cursor-pointer" (click)="openModal()">
+<div class="bg-white rounded-xl shadow-lg border-purple-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-amber-400 overflow-hidden h-full flex flex-col cursor-pointer" (click)="openModal()">
     <!-- Yemek Resmi -->
-    <div class="relative h-40 md:h-48 bg-gradient-to-br from-purple-600 to-purple-700 overflow-hidden">
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-4xl md:text-5xl opacity-30">
-            {{product.imageUrl}}
-        </div>
+    <div class="relative h-36 sm:h-40 md:h-48 bg-gradient-to-br from-purple-600 to-purple-700 overflow-hidden bg-cover bg-center" [style.background-image]="product.imageUrl ? 'url(' + product.imageUrl + ')' : ''">
         @if (product.category == "Günün menüsü") {
-        <div class="absolute top-3 right-3 bg-red-400 text-gray-900 px-2 py-1 rounded-full text-xs font-semibold">
+        <div class="absolute top-2 right-2 sm:top-3 sm:right-3 bg-red-400 text-gray-900 px-2 py-1 rounded-full text-xs font-semibold">
          Günün menüsü   
         </div>
         }
         @else {
-            <div class="absolute top-3 right-3 bg-amber-400 text-gray-900 px-2 py-1 rounded-full text-xs font-semibold">
-         Sizin için en iyisi   
+            <div class="absolute top-2 right-2 sm:top-3 sm:right-3 bg-amber-400 text-gray-900 px-2 py-1 rounded-full text-xs font-semibold">
+                {{product.category}} 
         </div>
         }
     </div>
 
     <!-- İçerik -->
-    <div class="p-4 md:p-6 flex-1 flex flex-col">
+    <div class="p-3 sm:p-4 md:p-6 flex-1 flex flex-col">
         <!-- Başlık ve Fiyat -->
-        <div class="flex  justify-between items-start mb-3 min-w-0 gap-2">
-            <h3 class="text-lg  md:text-xl font-semibold text-gray-900 leading-tight flex-1 mr-2">
+        <div class="flex justify-between items-start mb-2 sm:mb-3 min-w-0 gap-2">
+            <h3 class="text-base sm:text-lg md:text-xl font-semibold text-gray-900 leading-tight flex-1 mr-2 line-clamp-2">
                 {{product.name}}
             </h3>
-            
         </div>
 
         <!-- Açıklama -->
-        <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-4 flex-1 line-clamp-2">
+        <p class="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed mb-3 sm:mb-4 flex-1 line-clamp-2">
             {{product.description}}
-            {{product.category}}
         </p>
 
         <!-- Alt Bilgiler -->
-        <div class="flex justify-between items-center mb-4">
+        <div class="flex justify-between items-center mb-3 sm:mb-4">
             <div class="flex items-center gap-2">
-                @if (product.category == "Günün Menüsü") {
-                    <div class=" text-red-400 text-l ">
-                    {{product.category}}
-                </div>
-                }@else {
                 <div class="flex text-yellow-400 text-sm md:text-base">
-                    {{product.category}}
+                    <span class="text-xs sm:text-sm font-semibold text-green-600 bg-green-100 px-2 py-1 rounded">
+                        Yalnızca {{product.price}} ₺
+                    </span>
                 </div>
-                }
             </div>
-            <span class="text-xs md:text-sm font-semibold text-green-600 bg-green-100 px-2 py-1 rounded">
-                Yalnızca {{product.price}} ₺
-            </span>
         </div>
 
         <!-- Buton -->
-        <button class="w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white py-3 px-4 rounded-lg font-semibold text-sm md:text-base shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+        <button class="w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white py-2 sm:py-2.5 md:py-3 px-3 sm:px-4 rounded-lg font-semibold text-xs sm:text-sm md:text-base shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
             Sepete Ekle
         </button>
     </div>
 </div>
 
 <!-- Modal Popup -->
- @if (isModalOpen) {
-<div  class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999] p-4" (click)="closeModal()">
-    <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative z-[10000]" (click)="$event.stopPropagation()">
+@if (isModalOpen) {
+<div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999] p-2 sm:p-4" (click)="closeModal()">
+    <div class="bg-white rounded-xl sm:rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative z-[10000]" (click)="$event.stopPropagation()">
         <!-- Modal Header -->
         <div class="relative">
-            <div class="h-48 bg-gradient-to-br from-purple-600 to-purple-700 rounded-t-2xl flex items-center justify-center">
-                <div class="text-white text-6xl opacity-30">🍽️</div>
+            <div class="h-32 sm:h-40 md:h-48 bg-gradient-to-br from-purple-600 to-purple-700 rounded-t-xl sm:rounded-t-2xl flex items-center justify-center">
+                <div class="text-white text-4xl sm:text-5xl md:text-6xl opacity-30">🍽️</div>
             </div>
-            <button (click)="closeModal()" aria-label="close modal" class="absolute top-4 right-4 bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-full p-2 transition-all duration-200">
-                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button (click)="closeModal()" aria-label="close modal" class="absolute top-2 right-2 sm:top-4 sm:right-4 bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-full p-1.5 sm:p-2 transition-all duration-200">
+                <svg class="h-5 w-5 sm:h-6 sm:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
-                
             </button>
-            <div class="absolute top-4 left-4 bg-amber-400 text-gray-900 px-3 py-1 rounded-full text-sm font-semibold">
+            <div class="absolute top-2 left-2 sm:top-4 sm:left-4 bg-amber-400 text-gray-900 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">
                 YENİ
             </div>
         </div>
 
         <!-- Modal Content -->
-        <div class="p-6 md:p-8">
+        <div class="p-4 sm:p-6 md:p-8">
             <!-- Başlık ve Fiyat -->
-            <div class="line-clamp-1 flex justify-between items-start mb-6">
-                <h2 class="line-clamp-2 text-2xl md:text-3xl font-bold text-gray-900 leading-tight flex-1 mr-4">
+            <div class="flex flex-col sm:flex-row justify-between items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 leading-tight flex-1">
                     {{product.name}}
                 </h2>
-                <div class="text-right">
-                    <div class="text-3xl md:text-4xl font-bold text-purple-600 line-clamp-2">₺{{product.price}}</div>
-                    <div class="text-sm text-gray-500">porsiyon</div>
+                <div class="text-left sm:text-right">
+                    <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-purple-600">₺{{product.price}}</div>
+                    <div class="text-xs sm:text-sm text-gray-500">porsiyon</div>
                 </div>
             </div>
 
             <!-- Açıklama -->
-            <div class="mb-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-3">Açıklama</h3>
-                <p class="text-gray-700 leading-relaxed">
+            <div class="mb-4 sm:mb-6">
+                <h3 class="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">Açıklama</h3>
+                <p class="text-sm sm:text-base text-gray-700 leading-relaxed">
                     {{product.description}}
                 </p>
             </div>
 
             <!-- Malzemeler -->
-            <div class="mb-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-3">Besin icerikleri</h3>
-                <div class="flex flex-wrap gap-2">
+            <div class="mb-4 sm:mb-6">
+                <h3 class="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">Besin içerikleri</h3>
+                <div class="flex flex-wrap gap-2 text-sm sm:text-base">
                      {{product.ingeredents}}
                 </div>
             </div>
-            <div class="mb-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-3">Besin kategorisi</h3>
-                <div class="flex flex-wrap gap-2">
+            
+            <div class="mb-4 sm:mb-6">
+                <h3 class="text-base sm:text-lg font-semibold text-gray-900 mb-2 sm:mb-3">Besin kategorisi</h3>
+                <div class="flex flex-wrap gap-2 text-sm sm:text-base">
                      {{product.category}}
                 </div>
             </div>
-            
-
-            <!-- Değerlendirme -->
-            
 
             <!-- Butonlar -->
-            <div class="flex gap-4">
-                <button class="flex-1 bg-gradient-to-r from-purple-600 to-purple-700 text-white py-4 px-6 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
+            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <button class="flex-1 bg-gradient-to-r from-purple-600 to-purple-700 text-white py-3 sm:py-4 px-4 sm:px-6 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base md:text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
                     Sepete Ekle
                 </button>
-                <button class="px-6 py-4 border-2 border-purple-600 text-purple-600 rounded-xl font-semibold hover:bg-purple-600 hover:text-white transition-all duration-300">
-                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button class="px-4 sm:px-6 py-3 sm:py-4 border-2 border-purple-600 text-purple-600 rounded-lg sm:rounded-xl font-semibold hover:bg-purple-600 hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
+                    <svg class="h-5 w-5 sm:h-6 sm:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                     </svg>
-                    Adet sayisi gir
+                    <span class="hidden sm:inline">Favorilere ekle</span>
                 </button>
             </div>
         </div>
